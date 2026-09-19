@@ -1,0 +1,16 @@
+# Campaign reproducibility pin (2026-09-18, omicos kernel env)
+# Python 3.11.15
+cellrank==2.0.7
+palantir==1.4.5
+mellon==1.7.1
+jax==0.7.1
+jaxopt==0.8.5
+scanpy==1.11.5
+anndata==0.11.4
+numpy==2.2.6
+scipy==1.16.3
+pandas==2.3.3
+scikit-learn==1.7.2
+igraph==1.0.0
+umap-learn==0.5.12
+matplotlib==3.10.9

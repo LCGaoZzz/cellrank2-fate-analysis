@@ -1,0 +1,14 @@
+model rebuilt: macrostates=['11DC', '19Lymph', '7MEP', '15Mo', '3Ery']
+native ok fig_macrostates
+native ok fig_terminal_states
+native ok fig_terminal_membership
+native ok fig_fate_probabilities
+native ok fig_fate_probabilities_panels
+native ok fig_coarse_T
+native ok fig_spectrum
+native ok fig_aggregate_fate
+native ok fig_lineage_drivers_11DC
+native ok fig_lineage_drivers_19Lymph
+gene trends plotted: ['11DC:H2-Eb1', '11DC:H2-Aa', '11DC:Cd74', '19Lymph:Ccl5', '19Lymph:Ctsw', '19Lymph:Cd2']
+native ok fig_circular_projection
+TOTAL figures: 16

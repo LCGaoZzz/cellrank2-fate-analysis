@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.omicos.dev/reproducibility-contract-v1.json",
+  "schema_version": "1.0",
+  "skill_id": "cellrank2-fate-analysis",
+  "entrypoint": {
+    "path": "scripts/run_cellrank2_fusion.py",
+    "language": "python"
+  },
+  "source": {
+    "availability": "redistributable",
+    "redistribution_approved": true,
+    "package_manifest": "REPRODUCIBILITY_SOURCE.sha256",
+    "bundle_paths": [
+      "SKILL.md",
+      "REPRODUCIBILITY_SOURCE.sha256",
+      "requirements.txt",
+      "requirements-reproducibility.txt",
+      "scripts/*.py",
+      "references/*.md",
+      "contracts/*.json"
+    ],
+    "external_runtime": "cellrank 2.0.x + palantir 1.4.x Python packages supplied by the host; prior columns produced by the two prerequisite skills"
+  },
+  "environment": {
+    "runtime": "python",
+    "version": "3.11.*",
+    "lock_files": ["requirements-reproducibility.txt"]
+  },
+  "inputs": {
+    "data_policy": "reference",
+    "sensitive_data": "exclude",
+    "required_semantics": [
+      "h5ad whose obs carries the two prior columns (Palantir pseudotime increasing along differentiation; CytoTRACE2_Score higher = less differentiated), aligned by cell_id",
+      "an annotation column for cluster_key",
+      "raw-count provenance for the graph build (the entrypoint re-runs normalize_total + palantir log2 + HVG + PCA internally)"
+    ]
+  },
+  "run_artifacts": {
+    "run_manifest": "audit.json",
+    "artifact_index": "fate_probabilities.csv",
+    "resolved_config": ["audit.json"],
+    "validation": ["audit.json"],
+    "optional": ["terminal_members.csv", "transition_matrix.npz", "fig_fate_umap.png", "fig_fate_umap.csv"]
+  },
+  "replay": {
+    "command_template": [
+      "{python}",
+      "{entrypoint}",
+      "--h5ad",
+      "{h5ad}",
+      "--cluster-key",
+      "{cluster_key}",
+      "--out-dir",
+      "{out_dir}",
+      "--n-states",
+      "{n_states}",
+      "--w-ct2",
+      "{w_ct2}",
+      "--seed",
+      "{seed}"
+    ]
+  },
+  "claim": {
+    "level": "audit_only",
+    "blockers": [
+      "Verified on mouse pancreas (2850 cells) and paul15 myeloid (2730 cells) with the pinned environment; not numerically locked across cellrank/palantir releases.",
+      "Fate probabilities are model-conditional quantities, not measured transition rates; the audits catch anchor/numeric/selection failures, not biological validity.",
+      "Auto eigengap state selection can collapse to n=1 on CytoTRACE2-weighted kernels even when the fixed-K model is healthy; the primary model must use explicit n_states.",
+      "The built-in CytoTRACEKernel is unusable on restricted gene panels and on log-transformed data; this skill deliberately excludes it and fuses external scores instead.",
+      "Direction-conflict rates near 0.5 with near-zero rank correlation were observed on both validation datasets; per-sample conflict auditing requires a sample column the validation data lacks."
+    ]
+  }
+}
