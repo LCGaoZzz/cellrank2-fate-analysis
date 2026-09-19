@@ -1,0 +1,9 @@
+label,n_cells,majority_cluster,majority_fraction
+Mye_C1QC,30,Mye_C1QC,1.0
+Mye_FABP4,30,Mye_FABP4,1.0
+Mye_InflamMono_1,30,Mye_InflamMono,1.0
+Mye_InflamMono_2,30,Mye_InflamMono,1.0
+Mye_NonClassicalMono,30,Mye_NonClassicalMono,1.0
+Mye_TissueResMac_1,30,Mye_TissueResMac,1.0
+Mye_TissueResMac_2,30,Mye_TissueResMac,1.0
+Mye_TissueResMac_3,30,Mye_TissueResMac,1.0

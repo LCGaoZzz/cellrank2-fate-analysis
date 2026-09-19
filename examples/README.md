@@ -51,3 +51,11 @@ path, macrostate composition and lineage priming by the manual renderers.
 Driver sanity anchors reproduce: 11DC → *H2-Eb1 / H2-Aa / Cd74* (MHC-II),
 19Lymph → *Ccl5 / Ctsw / Cd2*; `lineage_drivers_all.csv` carries the full
 per-lineage driver table.
+
+## More examples
+
+- [`G1a_Myeloid_MonoTAM/`](G1a_Myeloid_MonoTAM/) — production scale: 265,480-cell
+  pan-cancer monocyte→TAM atlas. Batch-structured input (reused Harmony
+  geometry), PETSc krylov eigendecomposition, explicit terminal-state
+  selection, and the final result tables checked in under `data/` with
+  schemas in [`docs/OUTPUT_FORMATS.md`](../docs/OUTPUT_FORMATS.md).

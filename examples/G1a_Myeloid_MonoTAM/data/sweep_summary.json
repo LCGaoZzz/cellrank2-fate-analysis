@@ -1,0 +1,130 @@
+{
+  "primary": "fusion/ (w=0.5, K=7, full artifacts)",
+  "note": "w=0 palantir-only and w=1 ct2-only are the two singles (SOP s6)",
+  "results": [
+    {
+      "config": "w0_K7",
+      "error": "ValueError: Expected the scalar to be positive, found `0.0`."
+    },
+    {
+      "config": "w0.25_K7",
+      "w_ct2": 0.25,
+      "n_states": 7,
+      "terminal_states": [
+        "Mye_ClassicalMono",
+        "Mye_FABP4",
+        "Mye_InflamMono_1",
+        "Mye_InflamMono_2",
+        "Mye_NonClassicalMono",
+        "Mye_TissueResMac_1",
+        "Mye_TissueResMac_2"
+      ],
+      "n_terminal_states": 7,
+      "fate_names": [
+        "Mye_ClassicalMono",
+        "Mye_InflamMono_1",
+        "Mye_TissueResMac_1",
+        "Mye_NonClassicalMono",
+        "Mye_TissueResMac_2",
+        "Mye_FABP4",
+        "Mye_InflamMono_2"
+      ],
+      "gate_rowsum_dev": 1.20509807648439e-05,
+      "fate_min": 0.0,
+      "elapsed_s": 200.9,
+      "dominant_fate_agreement_vs_primary": 0.965986138315504,
+      "spearman_vs_primary": null
+    },
+    {
+      "config": "w0.75_K7",
+      "w_ct2": 0.75,
+      "n_states": 7,
+      "terminal_states": [
+        "Mye_C1QC",
+        "Mye_ClassicalMono_1",
+        "Mye_ClassicalMono_2",
+        "Mye_FABP4",
+        "Mye_NonClassicalMono",
+        "Mye_TissueResMac_1",
+        "Mye_TissueResMac_2"
+      ],
+      "n_terminal_states": 7,
+      "fate_names": [
+        "Mye_ClassicalMono_1",
+        "Mye_TissueResMac_1",
+        "Mye_TissueResMac_2",
+        "Mye_NonClassicalMono",
+        "Mye_FABP4",
+        "Mye_ClassicalMono_2",
+        "Mye_C1QC"
+      ],
+      "gate_rowsum_dev": 3.3112230405474286e-05,
+      "fate_min": 0.0,
+      "elapsed_s": 279.8,
+      "dominant_fate_agreement_vs_primary": 0.9233463914419165,
+      "spearman_vs_primary": null
+    },
+    {
+      "config": "w1_K7",
+      "error": "ValueError: Expected the scalar to be positive, found `0.0`."
+    },
+    {
+      "config": "w0.5_K6",
+      "w_ct2": 0.5,
+      "n_states": 6,
+      "terminal_states": [
+        "Mye_ClassicalMono",
+        "Mye_FABP4",
+        "Mye_InflamMono",
+        "Mye_NonClassicalMono",
+        "Mye_TissueResMac_1",
+        "Mye_TissueResMac_2"
+      ],
+      "n_terminal_states": 6,
+      "fate_names": [
+        "Mye_ClassicalMono",
+        "Mye_NonClassicalMono",
+        "Mye_TissueResMac_1",
+        "Mye_TissueResMac_2",
+        "Mye_FABP4",
+        "Mye_InflamMono"
+      ],
+      "gate_rowsum_dev": 1.5940765758060138e-05,
+      "fate_min": 0.0,
+      "elapsed_s": 197.5,
+      "dominant_fate_agreement_vs_primary": 0.9785256893174628,
+      "spearman_vs_primary": null
+    },
+    {
+      "config": "w0.5_K8",
+      "w_ct2": 0.5,
+      "n_states": 8,
+      "terminal_states": [
+        "Mye_ClassicalMono",
+        "Mye_FABP4",
+        "Mye_InflamMono",
+        "Mye_NonClassicalMono",
+        "Mye_SPP1",
+        "Mye_TissueResMac_1",
+        "Mye_TissueResMac_2",
+        "Mye_TissueResMac_3"
+      ],
+      "n_terminal_states": 8,
+      "fate_names": [
+        "Mye_ClassicalMono",
+        "Mye_InflamMono",
+        "Mye_TissueResMac_1",
+        "Mye_TissueResMac_2",
+        "Mye_TissueResMac_3",
+        "Mye_NonClassicalMono",
+        "Mye_FABP4",
+        "Mye_SPP1"
+      ],
+      "gate_rowsum_dev": 6.082085690972683e-06,
+      "fate_min": 0.0,
+      "elapsed_s": 229.9,
+      "dominant_fate_agreement_vs_primary": 0.13034503540756365,
+      "spearman_vs_primary": null
+    }
+  ]
+}

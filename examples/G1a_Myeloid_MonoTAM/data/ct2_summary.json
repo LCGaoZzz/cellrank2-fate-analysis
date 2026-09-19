@@ -1,0 +1,9 @@
+{
+  "binary": "cytotrace2-fast v1.2.0 @d334c0eb (campaign build)",
+  "species": "human",
+  "seed": 14,
+  "batch_size": 50000,
+  "n_cells": 265480,
+  "input_check": "ok (frac_integer=1.0, feature_hit=0.7081, dup=0)",
+  "rescue": "multi-batch NaN edge (cytotrace2-fast pitfall): 14 preKNN fill + 6 harmony-graph neighbor-mean fill; cell set unchanged; flagged ct2_imputed"
+}

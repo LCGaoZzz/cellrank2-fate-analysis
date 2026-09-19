@@ -109,6 +109,13 @@ Runner outputs land in `--out-dir`: `audit.json`, `fate_probabilities.csv`,
 A fully reproduced paul15 example (audit, outputs, all figures) is checked
 in under [`examples/paul15/`](examples/paul15/).
 
+A production-scale case study — a 265,480-cell pan-cancer Mono→TAM atlas
+(batch-structured, reused Harmony geometry, PETSc krylov path, explicit
+terminal selection) with its final result tables checked in — lives under
+[`examples/G1a_Myeloid_MonoTAM/`](examples/G1a_Myeloid_MonoTAM/); every
+output schema is documented in
+[`docs/OUTPUT_FORMATS.md`](docs/OUTPUT_FORMATS.md).
+
 Pass an explicit `--n-states` for the primary model — auto selection
 (`n_states=None`, cellrank's `_eigengap` criterion) collapsed to n=1 on
 ct2-weighted kernels in validation while the fixed-K model was healthy;
@@ -173,6 +180,7 @@ columns in the validation data).
 | [`references/campaign-replay.md`](references/campaign-replay.md) | re-deriving or extending: the 5-round loop, what was measured, what was refuted |
 | [`references/boundaries.md`](references/boundaries.md) | applicability limits and open items |
 | [`contracts/reproducibility.v1.json`](contracts/reproducibility.v1.json) | the reproducibility contract |
+| [`docs/OUTPUT_FORMATS.md`](docs/OUTPUT_FORMATS.md) | consuming run outputs — schema of every artifact, with a filled example per file |
 
 Integrity: `REPRODUCIBILITY_SOURCE.sha256` covers the 12 skill source files
 (`sha256sum -c` from the repo root).

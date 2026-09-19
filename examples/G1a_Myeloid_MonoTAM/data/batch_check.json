@@ -1,0 +1,28 @@
+{
+  "n_datasets": 22,
+  "n_cohorts": 19,
+  "n_donors": 392,
+  "n_samples": 648,
+  "n_platforms": 10,
+  "silhouette_subsample20k_seed0": {
+    "X_pca__datasetID": -0.0429,
+    "X_pca__cohortID": -0.041,
+    "X_pca__sampleID": -0.0758,
+    "X_pca_harmony__datasetID": -0.1236,
+    "X_pca_harmony__cohortID": -0.124,
+    "X_pca_harmony__sampleID": -0.1346,
+    "harmony_graph_connected_components": 1,
+    "largest_component_fraction": 1.0
+  },
+  "neighbors_params": {
+    "method": "umap",
+    "metric": "euclidean",
+    "n_neighbors": "30",
+    "random_state": "0",
+    "use_rep": "X_pca_harmony"
+  },
+  "silhouette_subsample60k_seed1_final_subtype": {
+    "X_pca__final_subtype": 0.1887,
+    "X_pca_harmony__final_subtype": 0.2108
+  }
+}

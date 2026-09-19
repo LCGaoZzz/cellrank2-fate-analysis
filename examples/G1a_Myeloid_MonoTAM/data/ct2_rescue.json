@@ -1,0 +1,60 @@
+{
+  "n_nan_score": 20,
+  "filled_from_preKNN": {
+    "n": 14,
+    "cells": [
+      "T_D15-CACAAACCACAGACTT.Pre_P025_b_0",
+      "T_D15-GAATAAGGTGACTCAT.Pre_P025_b_0",
+      "T_D15-GCTCTGTTCTGCTGCT.Pre_P025_b_0",
+      "T_D15-TCAGATGTCAACACGT.Post_P024_b_0",
+      "T_D12-CAAAGAATCAGACTGT-1-PDAC03_3",
+      "T_D12-CTGATCCCAAGAGTTA-1-PDAC03_3",
+      "T_D12-CGATGGCGTTGGTACT-1-PDAC19_3",
+      "T_D12-CTCTCAGGTATGGAAT-1-PDAC24_3",
+      "T_D12-TTTCAGTCACGTAACT-1-PDAC24_3",
+      "T_D43-PRJCA007744_A032_PAN_1798_3",
+      "T_D43-PRJCA007744_A032_PAN_3790_3",
+      "T_D43-PRJCA007744_A032_PAN_M_6248_3",
+      "T_D43-PRJCA007744_A091_HCC_1241_4",
+      "T_D14-ACACTGAAGTCATGCT_27-STAD015_Metastasis_Tumor_6"
+    ]
+  },
+  "filled_by_graph_neighbor_mean": {
+    "T_D15-GGTATTGTCACAATGC.Pre_P025_b_0": {
+      "imputed_score": 0.13531,
+      "n_neighbors_used": 27
+    },
+    "T_D12-AGCCACGCATTGAGGG-1-PDAC03_3": {
+      "imputed_score": 0.108075,
+      "n_neighbors_used": 36
+    },
+    "T_D12-TGGGTTACACTGGCGT-1-PDAC24_3": {
+      "imputed_score": 0.15476,
+      "n_neighbors_used": 29
+    },
+    "T_D43-PRJCA007744_A032_PAN_M_990_3": {
+      "imputed_score": 0.088572,
+      "n_neighbors_used": 34
+    },
+    "T_D43-PRJCA007744_A116_HCC_3686_4": {
+      "imputed_score": 0.096565,
+      "n_neighbors_used": 30
+    },
+    "T_D43-PRJCA007744_A045_CRC_M_7037_5": {
+      "imputed_score": 0.106591,
+      "n_neighbors_used": 17
+    }
+  },
+  "score_stats_after": {
+    "count": 265480.0,
+    "mean": 0.094118,
+    "std": 0.062893,
+    "min": 0.000323,
+    "25%": 0.052032,
+    "50%": 0.07854,
+    "75%": 0.121139,
+    "max": 0.489633
+  },
+  "binary_wall_time_h": 7.9,
+  "policy": "multi-batch NaN edge (cytotrace2-fast pitfall): 14 preKNN fill + 6 harmony-graph neighbor-mean fill; cell set unchanged; flagged ct2_imputed"
+}

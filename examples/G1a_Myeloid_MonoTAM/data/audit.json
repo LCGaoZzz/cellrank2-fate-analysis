@@ -1,0 +1,170 @@
+{
+  "script": "scripts/run_final.py (in this example directory)",
+  "skill": "cellrank2-fate-analysis @ a63627f (two-prior fusion GPCCA)",
+  "decision": {
+    "w_ct2": 0.5,
+    "chosen_K": 10,
+    "terminal_selection": "set_terminal_states (GPCCA macrostates with majority != Mye_ClassicalMono); fate solve via CFLARE on the same fused kernel (see note)",
+    "why": "default predict_terminal_states selected the root basin as terminal in every sweep config; C1QC does not separate from the SPP1 basin at K<=8 (nearly identical mean palantir 0.491 vs 0.486) - separation only at w=0.75 which drops InflamMono and SPP1 (see fusion_sweep)",
+    "macrostate_majorities": {
+      "Mye_C1QC": "Mye_C1QC",
+      "Mye_ClassicalMono_1": "Mye_ClassicalMono",
+      "Mye_ClassicalMono_2": "Mye_ClassicalMono",
+      "Mye_FABP4": "Mye_FABP4",
+      "Mye_InflamMono_1": "Mye_InflamMono",
+      "Mye_InflamMono_2": "Mye_InflamMono",
+      "Mye_NonClassicalMono": "Mye_NonClassicalMono",
+      "Mye_TissueResMac_1": "Mye_TissueResMac",
+      "Mye_TissueResMac_2": "Mye_TissueResMac",
+      "Mye_TissueResMac_3": "Mye_TissueResMac"
+    },
+    "macrostate_purity": {
+      "Mye_C1QC": 1.0,
+      "Mye_ClassicalMono_1": 1.0,
+      "Mye_ClassicalMono_2": 1.0,
+      "Mye_FABP4": 1.0,
+      "Mye_InflamMono_1": 1.0,
+      "Mye_InflamMono_2": 1.0,
+      "Mye_NonClassicalMono": 1.0,
+      "Mye_TissueResMac_1": 1.0,
+      "Mye_TissueResMac_2": 1.0,
+      "Mye_TissueResMac_3": 1.0
+    },
+    "c1qc_separated": true
+  },
+  "sweep_singles_fixed": {
+    "single_pal_w0": [
+      "Mye_ClassicalMono",
+      "Mye_FABP4",
+      "Mye_InflamMono_1",
+      "Mye_InflamMono_2",
+      "Mye_NonClassicalMono",
+      "Mye_TissueResMac_1",
+      "Mye_TissueResMac_2"
+    ],
+    "single_ct2_w1": [
+      "Mye_C1QC",
+      "Mye_ClassicalMono",
+      "Mye_FABP4",
+      "Mye_InflamMono",
+      "Mye_NonClassicalMono",
+      "Mye_TissueResMac_1",
+      "Mye_TissueResMac_2"
+    ]
+  },
+  "sweep_default_method": {
+    "w0.25_K7": [
+      "Mye_ClassicalMono",
+      "Mye_FABP4",
+      "Mye_InflamMono_1",
+      "Mye_InflamMono_2",
+      "Mye_NonClassicalMono",
+      "Mye_TissueResMac_1",
+      "Mye_TissueResMac_2"
+    ],
+    "w0.5_K7": "see fusion/audit.json",
+    "w0.75_K7": [
+      "Mye_C1QC",
+      "Mye_ClassicalMono_1",
+      "Mye_ClassicalMono_2",
+      "Mye_FABP4",
+      "Mye_NonClassicalMono",
+      "Mye_TissueResMac_1",
+      "Mye_TissueResMac_2"
+    ],
+    "w0.5_K6": [
+      "Mye_ClassicalMono",
+      "Mye_FABP4",
+      "Mye_InflamMono",
+      "Mye_NonClassicalMono",
+      "Mye_TissueResMac_1",
+      "Mye_TissueResMac_2"
+    ],
+    "w0.5_K8": [
+      "Mye_ClassicalMono",
+      "Mye_FABP4",
+      "Mye_InflamMono",
+      "Mye_NonClassicalMono",
+      "Mye_SPP1",
+      "Mye_TissueResMac_1",
+      "Mye_TissueResMac_2",
+      "Mye_TissueResMac_3"
+    ]
+  },
+  "terminal_states": [
+    {
+      "label": "Mye_C1QC",
+      "n_cells": 30,
+      "majority_cluster": "Mye_C1QC",
+      "majority_fraction": 1.0
+    },
+    {
+      "label": "Mye_FABP4",
+      "n_cells": 30,
+      "majority_cluster": "Mye_FABP4",
+      "majority_fraction": 1.0
+    },
+    {
+      "label": "Mye_InflamMono_1",
+      "n_cells": 30,
+      "majority_cluster": "Mye_InflamMono",
+      "majority_fraction": 1.0
+    },
+    {
+      "label": "Mye_InflamMono_2",
+      "n_cells": 30,
+      "majority_cluster": "Mye_InflamMono",
+      "majority_fraction": 1.0
+    },
+    {
+      "label": "Mye_NonClassicalMono",
+      "n_cells": 30,
+      "majority_cluster": "Mye_NonClassicalMono",
+      "majority_fraction": 1.0
+    },
+    {
+      "label": "Mye_TissueResMac_1",
+      "n_cells": 30,
+      "majority_cluster": "Mye_TissueResMac",
+      "majority_fraction": 1.0
+    },
+    {
+      "label": "Mye_TissueResMac_2",
+      "n_cells": 30,
+      "majority_cluster": "Mye_TissueResMac",
+      "majority_fraction": 1.0
+    },
+    {
+      "label": "Mye_TissueResMac_3",
+      "n_cells": 30,
+      "majority_cluster": "Mye_TissueResMac",
+      "majority_fraction": 1.0
+    }
+  ],
+  "fate_names": [
+    "Mye_C1QC",
+    "Mye_FABP4",
+    "Mye_InflamMono_1",
+    "Mye_InflamMono_2",
+    "Mye_NonClassicalMono",
+    "Mye_TissueResMac_1",
+    "Mye_TissueResMac_2",
+    "Mye_TissueResMac_3"
+  ],
+  "numeric_gates": {
+    "transition": {
+      "finite": true,
+      "non_negative": true,
+      "rowsum_dev": 6.661338147750939e-16
+    },
+    "fate": {
+      "finite": true,
+      "non_negative": true,
+      "rowsum_dev": 1.586705919409681e-05
+    },
+    "all_pass": true
+  },
+  "timing_s": 367.8,
+  "n_cells": 265480,
+  "_publication_note": "absolute local paths rewritten to repo-relative names; every numeric field is untouched run output"
+}

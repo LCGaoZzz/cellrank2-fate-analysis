@@ -1,0 +1,107 @@
+{
+  "checks": {
+    "terminal_self_absorption": {
+      "Mye_NonClassicalMono": 0.879491802506643,
+      "Mye_C1QC": 0.9953855650893391,
+      "Mye_FABP4": 0.999199682679604,
+      "Mye_SPP1": 0.9999989914480065,
+      "Mye_TissueResMac": 0.9331315840875153,
+      "Mye_InflamMono": 0.9841122962636557
+    },
+    "branch_mask_sizes": {
+      "Mye_NonClassicalMono": 46183,
+      "Mye_C1QC": 90182,
+      "Mye_FABP4": 103863,
+      "Mye_SPP1": 81276,
+      "Mye_TissueResMac": 128149,
+      "Mye_InflamMono": 58127
+    },
+    "fate_by_final_subtype": {
+      "Mye_C1QC": {
+        "Mye_NonClassicalMono": 0.0003,
+        "Mye_ClassicalMono": 0.0004,
+        "Mye_InflamMono": 0.2098,
+        "Mye_TissueResMac": 0.4734,
+        "Mye_C1QC": 1.0,
+        "Mye_SPP1": 0.3301,
+        "Mye_FABP4": 0.1696
+      },
+      "Mye_FABP4": {
+        "Mye_NonClassicalMono": 0.0,
+        "Mye_ClassicalMono": 0.0,
+        "Mye_InflamMono": 0.0,
+        "Mye_TissueResMac": 0.0,
+        "Mye_C1QC": 0.0,
+        "Mye_SPP1": 0.0,
+        "Mye_FABP4": 0.8167
+      },
+      "Mye_InflamMono": {
+        "Mye_NonClassicalMono": 0.0139,
+        "Mye_ClassicalMono": 0.0014,
+        "Mye_InflamMono": 0.6715,
+        "Mye_TissueResMac": 0.0,
+        "Mye_C1QC": 0.0,
+        "Mye_SPP1": 0.0001,
+        "Mye_FABP4": 0.0032
+      },
+      "Mye_NonClassicalMono": {
+        "Mye_NonClassicalMono": 0.9858,
+        "Mye_ClassicalMono": 0.9983,
+        "Mye_InflamMono": 0.0624,
+        "Mye_TissueResMac": 0.0,
+        "Mye_C1QC": 0.0,
+        "Mye_SPP1": 0.0,
+        "Mye_FABP4": 0.0105
+      },
+      "Mye_SPP1": {
+        "Mye_NonClassicalMono": 0.0,
+        "Mye_ClassicalMono": 0.0,
+        "Mye_InflamMono": 0.0563,
+        "Mye_TissueResMac": 0.0,
+        "Mye_C1QC": 0.0,
+        "Mye_SPP1": 0.6698,
+        "Mye_FABP4": 0.0001
+      },
+      "Mye_TissueResMac": {
+        "Mye_NonClassicalMono": 0.0,
+        "Mye_ClassicalMono": 0.0,
+        "Mye_InflamMono": 0.0,
+        "Mye_TissueResMac": 0.5266,
+        "Mye_C1QC": 0.0,
+        "Mye_SPP1": 0.0,
+        "Mye_FABP4": 0.0
+      }
+    },
+    "pseudotime_range": [
+      0.0,
+      1.0
+    ],
+    "entropy_range": [
+      2.881451942343511e-07,
+      1.590132724496448
+    ]
+  },
+  "warnings": [],
+  "passed": true,
+  "config": {
+    "h5ad": "G1a_Myeloid_MonoTAM.h5ad",
+    "diffusion_input": "X_pca_harmony (23 comps, upstream Harmony)",
+    "preprocess": "normalize_total(median)->palantir log2->min_cells=3->HVG1500 cell_ranger",
+    "diffusion": "run_diffusion_maps(n_components=15, knn=30) on harmony; multiscale dims=14",
+    "early_cell": "T_D43-PRJCA007744_A114_HCC_B_8635_4",
+    "early_rule": "S100A8 argmax restricted to traj_role==root_anchor",
+    "terminal_states": {
+      "T_D15-AAGGCAGAGTGTGGCA.Pre_P028_b_0": "Mye_NonClassicalMono",
+      "T_D43-PRJCA007744_A123_HCC_N_4500_4": "Mye_InflamMono",
+      "T_D15-CTGCTGTAGGTAAACT.Prog_P013_t_0": "Mye_C1QC",
+      "T_D43-PRJCA007744_A099_HCC_2688_4": "Mye_SPP1",
+      "T_D27-CGCCATTAGGCAGGTT-1-GSE155698_15_Tumor_3": "Mye_FABP4",
+      "T_D43-PRJCA007744_A114_HCC_N_4426_4": "Mye_TissueResMac"
+    },
+    "seed": 20,
+    "num_waypoints": 500,
+    "knn": 30,
+    "palantir_version": "1.4.5",
+    "same_source_note": "diffusion geometry == CellRank kNN graph geometry (X_pca_harmony, k=30)"
+  }
+}
