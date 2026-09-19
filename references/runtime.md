@@ -36,7 +36,12 @@ https://github.com/LCGaoZzz/cytotrace2-fast.git with a stable Rust toolchain
 `assets/MANIFEST.json`. Parity vs the official Python vignette output:
 Spearman 1.0, max|Δ| 1.7e-9, potency agreement 100% (same input, seed 14,
 single-batch regime). The official R-package CSV differs (ρ≈0.964) — never
-mix regimes in a parity claim.
+mix regimes in a parity claim. That single-batch regime is a vignette-scale
+convention only (≤30k cells): diffusion smoothing takes ~n² memory, and a
+265k-cell single-batch run OOM'd at 483 GB (2026-09-19, killed the backend
+service with it). On production-scale data produce the score column with
+bounded batches (`batch_size=50000` or defaults) — see the cytotrace2-fast
+skill's pitfalls #11; the recipe refuses single-batch beyond 30k cells.
 
 ## Determinism
 
