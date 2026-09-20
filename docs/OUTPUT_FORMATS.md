@@ -156,3 +156,25 @@ case-level sha256 for every checked-in file (and for Release assets) are in
 the case README's manifest. `REPRODUCIBILITY_SOURCE.sha256` at the repo
 root covers the skill source files themselves (`sha256sum -c` from the
 repo root).
+
+## 10. Downstream per-cell interface (`per_cell_interface.csv.gz`)
+
+One row per cell, joins 1:1 to `fate_probabilities.csv.gz` on `cell_id`.
+
+| column | provenance |
+|---|---|
+| `cell_id` | obs names (unique) |
+| `sample_id` / `donor_id` / `dataset_id` / `cohort_id` | obs `sampleID` / `donorID` / `datasetID` / `cohortID` (verbatim) |
+| `cancer_type` / `sample_type` / `tissue` | obs `cancerType` / `sampleType` / `tissue` (verbatim) |
+| `lineage_id` / `state_domain_id` | analysis-unit identifiers (`G1_Myeloid` / `G1a_Myeloid_MonoTAM`) |
+| `palantir_pseudotime` / `palantir_entropy` | the per-cell tau (Palantir on the same geometry as the kernel graph) |
+| `CytoTRACE2_Score` / `ct2_imputed` | potency prior + rescue flag (see §7, `ct2_rescue.json`) |
+| `final_subtype` / `macrostate` / `dominant_fate` | annotation, GPCCA macrostate, argmax fate |
+| `model_id` / `reference_id` | model identity + provenance pointer |
+
+`sample_lineage_coverage.csv`: `sample_id, donor_id, dataset_id,
+cancer_type, lineage_id, state_domain_id, n_cells, observed,
+exclusion_reason` — over the full atlas sample universe; absent = missing,
+never zero. `consistency_check.json`: cell-order/column/terminal-member
+identity and max-abs fate difference between independently rebuilt
+artifacts (measured 1.1e-16 here).

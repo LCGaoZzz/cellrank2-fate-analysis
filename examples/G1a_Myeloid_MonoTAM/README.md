@@ -150,7 +150,40 @@ CD5L/SLC40A1/C1QC/CETP/CXCL12*.
 - Root cells' fate mass spreads across all eight terminals (top: TRM_3
   .266, C1QC .184, FABP4 .134) — no collapse onto a single lineage.
 
-## 6. What is claimed and what is not
+## 6. Downstream input contract — the per-cell interface
+
+For downstream methods that need per-cell pseudotime + fate + sample
+metadata in one place (e.g. sample-level fate-weighted sub-densities
+`f_hat_slr(u) = (1/n_sl) * sum_i q_ir * kappa_h(u | tau_i)`), `data/`
+carries the complete interface — nothing else needs recomputing:
+
+- **`per_cell_interface.csv.gz`** (265,480 × 19, keyed by `cell_id`, joins
+  1:1 to `fate_probabilities.csv.gz`): `sample_id, donor_id, dataset_id,
+  cohort_id, cancer_type, sample_type, tissue` (verbatim from obs, mapped
+  `sampleID→sample_id, donorID→donor_id, datasetID→dataset_id,
+  cohortID→cohort_id, cancerType→cancer_type, sampleType→sample_type` — no
+  field inferred from barcode format), `lineage_id = G1_Myeloid`,
+  `state_domain_id = G1a_Myeloid_MonoTAM`, **`palantir_pseudotime`** and
+  `palantir_entropy` (the per-cell tau), `CytoTRACE2_Score` +
+  `ct2_imputed` (20 rescued cells; per-cell provenance in
+  `ct2_rescue.json`), `final_subtype`, `macrostate`, `dominant_fate`,
+  `model_id`, `reference_id`.
+- **`sample_lineage_coverage.csv`** — planned-universe coverage over the
+  atlas' **653** samples: 648 observed in this state domain with cell
+  counts, **5 absent** (recorded `observed=false` + `exclusion_reason`;
+  missing ≠ zero). The sampling unit is `sample_id` (653 samples / 392
+  donors — same donor, different tissues stay separate observations).
+- **`consistency_check.json`** — the fate CSV (runner build) and the final
+  h5ad (rebuilt for the figure set) are two deterministic builds of the
+  same model: same cell order and fate columns, **max abs fate difference
+  1.1e-16**, terminal member sets identical. The single-source concern is
+  closed by measurement, not by parameter identity.
+- Reading rule for Q: the 8 declared terminal states are the complete
+  probability space. No standalone SPP1 terminal is modeled (its mass
+  splits toward C1QC/FABP4/TRM_3) — downstream outputs must not be
+  narrated as containing an SPP1 fate.
+
+## 7. What is claimed and what is not
 
 Fate probabilities are model-conditional quantities over a cross-patient,
 Harmony-integrated atlas — transcriptional state-transition propensity, not
@@ -163,12 +196,14 @@ budget went to the 7.9 h CytoTRACE2 prior. GAM gene-trend figures are
 omitted at this scale (pygam infeasible at 265k; the paul15 example carries
 them).
 
-## 7. Directory contents
+## 8. Directory contents
 
 - `data/` — final result tables + audits, one file per artifact; every
   schema in [`docs/OUTPUT_FORMATS.md`](../../docs/OUTPUT_FORMATS.md). The
   two large tables are gzip-compressed; the 115.4 MB
-  `transition_matrix.npz` is a Release asset.
+  `transition_matrix.npz` is a Release asset. The downstream
+  per-cell interface (§6): `per_cell_interface.csv.gz`,
+  `sample_lineage_coverage.csv`, `consistency_check.json`.
 - `figures/` — six representative PNGs (fate UMAP, terminal states,
   macrostate composition, aggregate fate, fate panels, batch mixing); the
   full 16-type set with per-figure CSVs lives in the run workspace.

@@ -4,7 +4,7 @@
   "decision": {
     "w_ct2": 0.5,
     "chosen_K": 10,
-    "terminal_selection": "set_terminal_states (GPCCA macrostates with majority != Mye_ClassicalMono); fate solve via CFLARE on the same fused kernel (see note)",
+    "terminal_selection": "GPCCA-native set_terminal_states(states=<8 mature macrostate names>, n_cells=30); fate via GPCCA.compute_fate_probabilities(solver='gmres', use_petsc=False)",
     "why": "default predict_terminal_states selected the root basin as terminal in every sweep config; C1QC does not separate from the SPP1 basin at K<=8 (nearly identical mean palantir 0.491 vs 0.486) - separation only at w=0.75 which drops InflamMono and SPP1 (see fusion_sweep)",
     "macrostate_majorities": {
       "Mye_C1QC": "Mye_C1QC",
@@ -166,5 +166,5 @@
   },
   "timing_s": 367.8,
   "n_cells": 265480,
-  "_publication_note": "absolute local paths rewritten to repo-relative names; every numeric field is untouched run output"
+  "_publication_note": "absolute local paths rewritten to repo-relative names; every numeric field is untouched run output; decision.terminal_selection wording corrected in publication copy \u2014 an abandoned CFLARE detour was misstated in the original run copy; the shipped model is the GPCCA path above"
 }

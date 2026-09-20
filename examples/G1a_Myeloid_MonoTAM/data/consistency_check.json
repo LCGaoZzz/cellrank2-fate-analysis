@@ -1,0 +1,23 @@
+{
+  "fate_csv_vs_final_h5ad": {
+    "n_cells": [
+      265480,
+      265480
+    ],
+    "same_cell_order": true,
+    "same_fate_columns": true,
+    "max_abs_fate_diff": 1.1102230246251565e-16,
+    "terminal_member_sets_identical": true,
+    "verdict": "two deterministic builds agree"
+  },
+  "per_cell_interface": {
+    "rows": 265480,
+    "palantir_nan": 0,
+    "ct2_imputed_cells": 20
+  },
+  "coverage": {
+    "atlas_samples": 653,
+    "observed": 648,
+    "absent": 5
+  }
+}
